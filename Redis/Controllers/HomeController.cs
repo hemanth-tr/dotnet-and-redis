@@ -10,13 +10,15 @@ namespace Redis.Controllers
     {
         public ActionResult Index()
         {
+            Session["username"] = "Hemanth";
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
+            ViewBag.Message = Session["username"];
+            Session.Clear();
+            Session.Abandon();
             return View();
         }
 
